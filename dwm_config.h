@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -17,8 +17,8 @@ static const char *colors[][3]      = {
 	[SchemeSel] =  { col_gray3, col_cyan,  col_cyan  },
 };
 
-static const char *fonts[] = { "xos4 Terminus:pixelsize=18:antialias=false:autohint=false", };
-static const char dmenufont[] = "xos4 Terminus:pixelsize=18:antialias=false:autohint=false";
+static const char *fonts[] = { "Terminus:pixelsize=18:antialias=false:autohint=false", };
+static const char dmenufont[] = "Terminus:pixelsize=18:antialias=false:autohint=false";
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4" };
@@ -61,7 +61,8 @@ static const char *browsercmd[]  = { "firefox", NULL };
 // static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 // static const char *qemucmd[]  = { "xinit", ".xqemurc", "--", ":1", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *slockcmd[]  = { "slock", NULL };
+//static const char *slockcmd[]  = { "slock", NULL };
+static const char *slockcmd[]  = { "gnome-screensaver-command", "-l", NULL };
 static const char *xkillcmd[]  = { "xkill", NULL };
 static const char *past2cmd[]  = { "xdotool", "click", "2", NULL };
 static const char *clipmenucmd[]  = { "clipmenu", NULL };
@@ -76,7 +77,7 @@ static Key keys[] = {
     { MOD4,                         XK_r,      spawn,          {.v = dmenucmd } },
     { MOD4,                         XK_l,      spawn,          {.v = slockcmd } },
     { MOD4,                         XK_x,      spawn,          {.v = xkillcmd } },
-    { MOD4,                         XK_v,      spawn,          {.v = past2cmd } },
+    { MOD4,                         XK_p,      spawn,          {.v = past2cmd } },
     { MOD4,                         XK_t,      spawn,          {.v = gtrcmd } },
     { MOD4|ShiftMask,               XK_v,      spawn,          {.v = clipmenucmd } },
     { MOD4|ShiftMask,               XK_h,      spawn,          {.v = monitorlcmd } },
