@@ -6,6 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+// static char *font = "xos4 Terminus:style=normal:pixelsize=18:antialias=false:autohint=false";
 static char *font = "Terminus:style=normal:pixelsize=18:antialias=false:autohint=false";
 // static char *font = "Inconsolata:style=normal:pixelsize=16:antialias=true:autohint=true";
 // static char *font = "mononoki:style=normal:pixelsize=16:antialias=false:autohint=false";
@@ -117,7 +118,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 0;
-unsigned int defaultbg = 15;
+unsigned int defaultbg = 7;
 static unsigned int defaultcs = 0;
 static unsigned int defaultrcs = 257;
 
