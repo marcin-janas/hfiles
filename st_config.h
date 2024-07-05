@@ -96,41 +96,42 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
+/* https://github.com/catppuccin/st */
 static const char *colorname[] = {
-	"#555555",  /*  0: brblack  */
-	"#ff0000",  /*  1: brred    */
-	"#00aa00",  /*  2: brgreen  */
-	"#dc9900",  /*  3: bryellow */
-	"#0000ff",  /*  4: brblue   */
-	"#ff00ff",  /*  5: brmagenta*/
-	"#00aaaa",  /*  6: brcyan   */
-	"#ececec",  /*  7: brwhite  */
-	"#000000",  /*  8: black    */
-	"#cc0000",  /*  9: red      */
-	"#00aa00",  /* 10: green    */
-	"#dc9900",  /* 11: yellow   */
-	"#0000cc",  /* 12: blue     */
-	"#ff00ff",  /* 13: magenta  */
-	"#00aaaa",  /* 14: cyan     */
-	"#ffffff",  /* 15: white    */
+	/* 8 normal colors */
+	"#5C5F77",
+	"#D20F39",
+	"#40A02B",
+	"#DF8E1D",
+	"#1E66F5",
+	"#EA76CB",
+	"#179299",
+	"#ACB0BE",
 
-	[255] = 0,
+	/* 8 bright colors */
+	"#6C6F85",
+	"#D20F39",
+	"#40A02B",
+	"#DF8E1D",
+	"#1E66F5",
+	"#EA76CB",
+	"#179299",
+	"#BCC0CC",
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"#ececec", /* default foreground colour */
-	"#333333", /* default background colour */
+[256] = "#4C4F69", /* default foreground colour */
+[257] = "#EFF1F5", /* default background colour */
+[258] = "#DC8A78", /*575268*/
+
 };
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 0;
-unsigned int defaultbg = 7;
-unsigned int defaultcs = 0;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 258;
 
 /*
  * Default shape of cursor
