@@ -7,8 +7,8 @@ static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrains Mono Slashed:size=18" };
-static const char dmenufont[]       = "JetBrains Mono Slashed:size=18";
+static const char *fonts[]          = { "Maple Mono NF Light:pixelsize=24:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Maple Mono NF Light:pixelsize=24:antialias=true:autohint=true";
 static const char col_gray1[]       = "#dcdcdc";
 static const char col_gray2[]       = "#dcdcdc";
 static const char col_gray3[]       = "#666666";
@@ -62,8 +62,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux",  NULL };
-static const char *webcmd[]  = { "flatpak", "run", "com.google.Chrome", NULL };
-static const char *slackcmd[]  = { "flatpak", "run", "com.slack.Slack", NULL };
+static const char *webcmd[]  = { "flatpak", "run", "com.google.Chrome", "--force-device-scale-factor=1.4", "--device=hid", NULL };
+static const char *slackcmd[]  = { "flatpak", "run", "com.slack.Slack", "--force-device-scale-factor=1.4", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
 static const char *past2cmd[]  = { "xdotool", "click", "2", NULL };
 static const char *poffcmd[]  = { "sudo", "systemctl", "poweroff", NULL };
@@ -74,22 +74,22 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,                          spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_v,                          spawn,          {.v = past2cmd } },
 	{ MODKEY|ShiftMask|ControlMask, XK_q,                          spawn,          {.v = poffcmd } },
-	{ MODKEY,                       XK_e,                          spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_t,                          spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,                          spawn,          {.v = webcmd } },
-	{ MODKEY,                       XK_s,                          spawn,          {.v = slackcmd } },
+	{ MODKEY,                       XK_e,                          spawn,          {.v = slackcmd } },
 	{ MODKEY,                       XK_b,                          togglebar,      {0} },
 	{ MODKEY,                       XK_j,                          focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,                          focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,                          incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,                          incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,                          incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_d,                          incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,                          setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,                          setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return,                     zoom,           {0} },
 	{ MODKEY,                       XK_Tab,                        view,           {0} },
 	{ MODKEY,                       XK_c,                          killclient,     {0} },
-	{ MODKEY,                       XK_t,                          setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,                          setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,                          setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_t,                          setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_f,                          setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,             XK_m,                          setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,                      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,                      togglefloating, {0} },
 	{ MODKEY,                       XK_0,                          view,           {.ui = ~0 } },
@@ -98,10 +98,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,                     focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,                      tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,                     tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                                          0)
-	TAGKEYS(                        XK_2,                                          1)
-	TAGKEYS(                        XK_3,                                          2)
-	TAGKEYS(                        XK_4,                                          3)
+	TAGKEYS(                        XK_a,                                          0)
+	TAGKEYS(                        XK_s,                                          1)
+	TAGKEYS(                        XK_d,                                          2)
+	TAGKEYS(                        XK_f,                                          3)
 	{ MODKEY|ShiftMask,             XK_q,                          quit,           {0} },
     // brightness and audio 
     {0,                             XK_Print,                      spawn,          SHCMD("shotgun $(hacksaw -f '-i %i -g %g') - | xclip -t 'image/png' -selection clipboard")},
